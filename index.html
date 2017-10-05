@@ -3,6 +3,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="referrer" content="origin">
     <title>Welcome to TatRad-n-B</title>
 
     <link href='http://fonts.googleapis.com/css?family=Raleway:300,500,800|Old+Standard+TT' rel='stylesheet' type='text/css'>
@@ -14,8 +15,9 @@
     <link rel="stylesheet" href="assets/gallery/blueimp-gallery.min.css">
     <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
     <link rel="icon" href="images/favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="assets/style.css">
     <link rel="stylesheet" href="assets/jquery.datetimepicker.min.css">
+    <link rel="stylesheet" href="assets/monthly.css">
+    <link rel="stylesheet" href="assets/style.css">
   </head>
 
   <body id="home">
@@ -43,11 +45,11 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li><a href="index.php">Home </a></li>
-            <li><a href="rooms-tariff.php">Rooms & Tariff</a></li>
-            <li><a href="introduction.php">Introduction</a></li>
-            <li><a href="gallery.php">Gallery</a></li>
-            <li><a href="contact.php">Contact</a></li>
+            <!-- <li><a href="index.php">Home </a></li> -->
+            <!-- <li><a href="rooms-tariff.php">Rooms & Tariff</a></li> -->
+            <!-- <li><a href="introduction.php">Introduction</a></li> -->
+            <!-- <li><a href="gallery.php">Gallery</a></li> -->
+            <!-- <li><a href="contact.php">Contact</a></li> -->
           </ul>
         </div><!-- Wnavbar-collapse -->
       </div><!-- container-fluid -->
@@ -68,63 +70,63 @@
         </div>
     </div>
 <!-- banner-->
-
 <!-- reservation-information -->
     <div id="information" class="spacer reserve-info ">
       <div class="container">
         <div class="row">
           <div class="col-sm-7 col-md-8">
-            <div class="embed-responsive embed-responsive-16by9 wowload fadeInLeft">
+            <div id="mycalendar-container" class="embed-responsive embed-responsive-4by3 wowload fadeInLeft">
+              <div style="width:100%; display:inline-block;">
+                <div class="monthly" id="mycalendar"></div>
+              </div>
               <!-- <iframe  class="embed-responsive-item" src="//player.vimeo.com/video/55057393?title=0" width="100%" height="400" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> -->
             </div>
           </div>
           <div class="col-sm-5 col-md-4">
             <h3>Reservation</h3>
-            <form role="form" class="wowload fadeInRight">
+            <form role="form" class="wowload fadeInRight" method="POST" action="http://formspree.io/konrad.dudziak@yahoo.com">
             <div class="form-group">
-                <input type="text" class="form-control"  placeholder="Name">
+                <input type="text" class="form-control"  name="NAME" placeholder="Name">
             </div>
             <div class="form-group">
-                <input type="email" class="form-control"  placeholder="Email">
+                <input type="email" class="form-control"  name="EMAIL" placeholder="Email">
             </div>
             <div class="form-group">
-                <input type="Phone" class="form-control"  placeholder="Phone">
+                <input type="Phone" class="form-control"  name="PHONE" placeholder="Phone">
             </div>
             <div class="form-group">
                 <div class="row">
                 <div class="col-xs-6">
-                <select class="form-control">
-                  <option>No. of Rooms</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
+                <select class="form-control" name="BorP">
+                  <option>Purpose</option>
+                  <option>Buisness</option>
+                  <option>Pleasure</option>
                 </select>
                 </div>
                 <div class="col-xs-6">
-                <select class="form-control">
+                <select class="form-control" name="NUMBEROF">
                   <option>No. of Adult</option>
+                  <option>1</option>
                   <option>2</option>
                   <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
+                  <option>4+</option>
                 </select>
                 </div></div>
             </div>
               <div class="form-group">
                   <div class="row">
                   <div class="col-xs-6">
-                    <input id="datetimepicker1" type="text" >
+                    <input id="datetimepicker1" type="text" placeholder="Check-In" class="form-control" name="CHECKIN">
                   </div>
                   <div class="col-xs-6">
-                    <input id="datetimepicker2" type="text" >
+                    <input id="datetimepicker2" type="text" placeholder="Check-Out" class="form-control" name="CHECKOUT">
                   </div>
                 </div>
               </div>
               <div class="form-group">
-                  <textarea class="form-control"  placeholder="Message" rows="4"></textarea>
+                  <textarea class="form-control"  placeholder="Message" rows="4" name="message"></textarea>
               </div>
-              <button class="btn btn-default">Submit</button>
+              <button class="btn btn-default" value="Send">Submit</button>
             </form>
           </div>
         </div>
@@ -237,7 +239,7 @@
 
     <div class="text-center copyright">Powered by <a href="http://thebootstrapthemes.com">thebootstrapthemes.com</a></div>
 
-    <a href="#home" class="toTop scroll"><i class="fa fa-angle-up"></i></a>
+    <!-- <a href="#home" class="toTop scroll"><i class="fa fa-angle-up"></i></a> -->
 
     <!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
     <div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls">
@@ -260,13 +262,37 @@
     <script src="assets/gallery/jquery.blueimp-gallery.min.js"></script>
     <script src="assets/script.js"></script>
     <script src="assets/jquery.datetimepicker.full.min.js"></script>
+    <script src="assets/monthly.js"></script>
     <script>
+    let events = {
+        "monthly":[
+        {
+          "id": 1,
+          "name": "This is a JSON event",
+          "startdate": "2017-10-15",
+          "enddate": "2017-10-18",
+          "starttime": "12:00",
+          "endtime": "2:00",
+          "color": "#FFB128",
+          "url": ""
+        },
+        {
+          "id": 2,
+          "name": "This is a JSON event",
+          "startdate": "2017-10-25",
+          "enddate": "",
+          "starttime": "12:00",
+          "endtime": "2:00",
+          "color": "#EF44EF",
+          "url": ""
+        }
+      ]
+    }
       $( document ).ready( function(){
 
-
-        jQuery(function(){
          jQuery('#datetimepicker1').datetimepicker({
           format:'m/d/Y',
+          minDate:0,
           onShow:function( ct ){
            this.setOptions({
             maxDate:jQuery('#datetimepicker2').val()?jQuery('#datetimepicker2').val():false
@@ -274,16 +300,25 @@
           },
           timepicker:false
          });
+
          jQuery('#datetimepicker2').datetimepicker({
           format:'m/d/Y',
           onShow:function( ct ){
            this.setOptions({
-            minDate:jQuery('#datetimepicker1').val()?jQuery('#datetimepicker1').val():false
+            minDate:jQuery('#datetimepicker1').val()?jQuery('#datetimepicker1').val():0
            })
           },
           timepicker:false
          });
-        });
+
+         jQuery('#mycalendar').monthly({
+      			mode: 'event',
+      			//jsonUrl: 'events.json',
+      			dataType: 'json',
+      			// xmlUrl: 'events.xml'
+            events: events
+      		});
+
 
       })
     </script>
