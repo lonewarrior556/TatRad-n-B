@@ -155,6 +155,7 @@ body::-webkit-scrollbar {
   #mycalendar-container {
     padding-bottom: 87%;
   }
+  .navbar-toggle{display:none}
 }
 @media (max-width: 767px){
 	.navbar-toggle{margin-top: 23px;}
