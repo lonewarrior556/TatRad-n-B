@@ -76,12 +76,6 @@ footer .subscribe .social a{font-size: 1.5em;margin-right: 0.25em;}
 
 
 
-
-
-
-
-
-
 /*unform*/
 .radio-inline{padding-top: 4px;padding-left: 0;}
 .form-horizontal .radio{padding-top: 3px;}
@@ -146,9 +140,6 @@ body::-webkit-scrollbar {
     ::-webkit-scrollbar-thumb:window-inactive {
         background: #ddd;
     }
-
-
-
 
 /*responsive starts here*/
 @media (max-width: 991px){
